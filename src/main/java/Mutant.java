@@ -178,13 +178,13 @@ public class Mutant {
         });
 
         JLabel lblNewLabel_1 = new JLabel("");
-        lblNewLabel_1.setIcon(new ImageIcon("/Users/ekerot/Documents/workspace/Mutant spelgenerator/img/mutantlogo.png"));
+        lblNewLabel_1.setIcon(new ImageIcon(getClass().getResource("/mutantlogo.png")));
         lblNewLabel_1.setBounds(41, -27, 590, 307);
         frmMutantSpelgenerator.getContentPane().add(lblNewLabel_1);
 
 
         JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setIcon(new ImageIcon("/Users/ekerot/Documents/workspace/Mutant spelgenerator/bin/back.png"));
+        lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/back.png")));
         lblNewLabel.setLabelFor(lblNewLabel);
         lblNewLabel.setBounds(-478, -167, 1900, 1224);
         frmMutantSpelgenerator.getContentPane().add(lblNewLabel);
@@ -222,10 +222,6 @@ public class Mutant {
 
         String z = Box2.getSelectedItem().toString();
         if (z.equals(ZON)) {
-
-
-            //}
-
 
             String s = Box2.getSelectedItem().toString();
             if (s.equals(SLP)) {
