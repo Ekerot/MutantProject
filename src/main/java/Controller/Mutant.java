@@ -1,38 +1,20 @@
+package Controller;
+
 import java.awt.EventQueue;
-import java.awt.Image;
-import java.awt.Toolkit;
 
-import javax.imageio.*;
 import javax.swing.*;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeListener;
-import java.io.File;
 
-import java.awt.BorderLayout;
-import java.awt.Choice;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import helpers.DiceRoller;
-import tabeller.Tabeller;
-
-import java.util.*;
-import java.awt.ScrollPane;
-import java.awt.FlowLayout;
 
 
 public class Mutant {
 
     private static final boolean b = false;
     private JFrame frmMutantSpelgenerator;
-    private static final String GENLABALFA = "Genlab alfa", ARNALL = "Mutant år noll", MASKIN = "Maskinarium", HOTIZONEN = "Hot i Zonen", SLP = "SLP", HOTMOTARK = "Hot mot Arken", ZON = "Zongenerator", KROSSARE = "Krossare", SKROTSKALLE = "Skrotskalle", KRONIKOR = "Krönikör", SLAV = "Slav", BOSS = "Boss", MUTANTMEDHUND = "Mutant med hund", ZONSTRYKARE = "Zonstrykare", FIXARE = "Fixare";
+    private static final String GENLABALFA = "Genlab alfa", ARNALL = "Controller.Mutant år noll", MASKIN = "Maskinarium", HOTIZONEN = "Hot i Zonen", SLP = "SLP", HOTMOTARK = "Hot mot Arken", ZON = "Zongenerator", KROSSARE = "Krossare", SKROTSKALLE = "Skrotskalle", KRONIKOR = "Krönikör", SLAV = "Slav", BOSS = "Boss", MUTANTMEDHUND = "Controller.Mutant med hund", ZONSTRYKARE = "Zonstrykare", FIXARE = "Fixare";
 
     final JComboBox Box;
     final JComboBox Box2;
@@ -49,6 +31,7 @@ public class Mutant {
             public void run() {
                 try {
                     Mutant window = new Mutant();
+                    window.frmMutantSpelgenerator.setLocationRelativeTo(null);
                     window.frmMutantSpelgenerator.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -75,7 +58,7 @@ public class Mutant {
         frmMutantSpelgenerator = new JFrame();
 
 
-        frmMutantSpelgenerator.setTitle("Mutant Spelgenerator");
+        frmMutantSpelgenerator.setTitle("Controller.Mutant Spelgenerator");
         frmMutantSpelgenerator.setForeground(Color.WHITE);
         frmMutantSpelgenerator.setBackground(Color.BLACK);
         frmMutantSpelgenerator.setBounds(600, 1000, 600, 1000);

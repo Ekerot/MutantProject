@@ -1,9 +1,9 @@
-Mutant
-dice generator for the RPG Mutant: Year Zero
+Controller.Mutant
+dice generator for the RPG Controller.Mutant: Year Zero
 
 Idea
 
-Making a dice generator for rpg Mutant: Year Zero and its different modules. 
+Making a dice generator for rpg Controller.Mutant: Year Zero and its different modules.
 It is most important to be easy to use, and will not consume time from the actual gameplay.
 
 Features

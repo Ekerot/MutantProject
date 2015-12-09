@@ -1,11 +1,20 @@
-package tabeller;
-
-import helpers.Tarningsresultat;
+package Model;
 
 import java.util.ArrayList;
 
+/*
+Klass med tabeller. Klassen kan endast användas igenom getResult. getResult har argumenten Table(enum) och ArrayList<Integer>.
+Detta returnerar en string. För exempel på använding se main metoden längst ner.
+ */
 
 public class Tabeller {
+
+    public enum Table {
+        zone,
+        ruinStandard,
+        ruinIndustri,
+        rotniva
+    }
 
     private static final String[][] zoner = new String[][]{
             new String[]{"Tät skog","Tät skog","Busklandskap","Busklandskap","Träsk","Träsk"},
@@ -14,7 +23,6 @@ public class Tabeller {
             new String[]{"Död skog","Asköken","Övervuxna ruiner","Söndervittrade ruiner","Förfallna ruiner","Välbevarade ruiner"},
             new String[]{"Öde industrilandskap","Övervuxna ruiner","Övervuxna ruiner","Söndervittrade ruiner","Söndervittrade ruiner","Förfallna ruiner"},
             new String[]{"Förfallna ruiner","Välbevarade ruiner","Välbevarade ruiner","Öde industrilandskap","Öde industrilandskap","Bosättning"},
-
     };
 
     private static final String[][] ruinstandard = new String[][]{
@@ -24,7 +32,6 @@ public class Tabeller {
             new String[]{"Nöjesfält","Parkeringshus","Polisstation","Radiostation","Raserad bro","Skyddsrum"},
             new String[]{"Slagfält","Snabbmatsrestaurang","Sporthall","Sjukhus","Stridsvagn","Teater"},
             new String[]{"Tunnelbana","Tågstation","Snabbköp","Vägtunnel","Övergiven skola","Ödelagd marina"},
-
     };
 
     private static final String[][] ruinindustri = new String[][]{
@@ -34,29 +41,47 @@ public class Tabeller {
             new String[]{"Raffinaderi","Raffinaderi","Raffinaderi","Reningsverk","Reningsverk","Reningsverk"},
             new String[]{"Skjutbana","Skjutbana","Skjutbana","Soptipp","Soptipp","Soptipp"},
             new String[]{"Vindkraftverk","Vindkraftverk","Vindkraftverk","Oljecistern","Oljecistern","Oljecistern"},
-
     };
 
     private static final String[][] rotniva = new String[][]{
             new String[]{"Rötnivå 0","Rötnivå 1","Rötnivå 1","Rötnivå 1","Rötnivå 1","Rötnivå 2"},
-
     };
 
-    public static String getZon(ArrayList<Tarningsresultat>kast){
-        return zoner[kast.get(0).getResultat()-1][kast.get(1).getResultat()-1];
+    public String getResult(Table t, ArrayList<Integer> diceRolls) {
+        switch(t) {
+            case zone: return getZon(diceRolls);
+            case ruinIndustri: return getRuinindustri(diceRolls);
+            case ruinStandard: return getRuinstandard(diceRolls);
+            case rotniva: return getRotniva(diceRolls);
+            default: return getZon(diceRolls);
+        }
     }
 
-    public static String getRuinstandard(ArrayList<Tarningsresultat>kast){
-        return ruinstandard[kast.get(0).getResultat()-1][kast.get(1).getResultat()-1];
+    private static String getZon(ArrayList<Integer>kast){
+        return zoner[kast.get(0)][kast.get(1)];
     }
 
-    public static String getRuinindustri(ArrayList<Tarningsresultat>kast){
-        return ruinindustri[kast.get(0).getResultat()-1][kast.get(1).getResultat()-1];
+    private static String getRuinstandard(ArrayList<Integer>kast){
+        return ruinstandard[kast.get(0)][kast.get(1)];
     }
 
-    public static String getRotniva(ArrayList<Tarningsresultat>kast){
-        return rotniva[kast.get(0).getResultat()-1][kast.get(1).getResultat()-1];
+    private static String getRuinindustri(ArrayList<Integer>kast){
+        return ruinindustri[kast.get(0)][kast.get(1)];
+    }
 
+    private static String getRotniva(ArrayList<Integer>kast){
+        return rotniva[0][kast.get(1)];
+    }
+
+    // Testing for Tabeller class
+    public static void main(String[] args) {
+        Tabeller t = new Tabeller();
+        DiceRoller dr = new DiceRoller();
+
+        ArrayList<Integer> rolls = dr.roll(2);
+       /* System.out.println(rolls.get(0));
+        System.out.println(rolls.get(1));*/
+        System.out.println(t.getResult(Table.rotniva,rolls));
     }
 }
 
