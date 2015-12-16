@@ -16,9 +16,8 @@ public class main {
         MutantController mc = new MutantController(dr,t);
 
         for(int i = 0; i<10; i++) {
-            System.out.println( mc.getDiceResults());
+            System.out.println(t.getResult(Tabeller.Table.rotniva, mc.getDiceResults()));
         }
-
 
     }
 }
