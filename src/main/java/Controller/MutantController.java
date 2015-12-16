@@ -11,23 +11,19 @@ import java.util.ArrayList;
  */
 public class MutantController {
 
-    DiceRoller dice = new DiceRoller();
+    DiceRoller diceRoller;
+    Tabeller tables;
+
+    public MutantController(DiceRoller dice, Tabeller tables) {
+        this.diceRoller = dice;
+        this.tables = tables;
+    }
 
     public ArrayList<Integer> getDiceResults() {
-        return dice.roll(2);
-
+        return diceRoller.roll(2);
     }
 
-    public static void main(String[] args) {
-        MutantController mc = new MutantController();
-        Tabeller t = new Tabeller();
-        DiceRoller dr = new DiceRoller();
 
-        ArrayList<Integer> rolls = new ArrayList<Integer>();
-        rolls = dr.roll(2);
-        System.out.println(rolls.get(0));
-        System.out.println(rolls.get(1));
 
-        System.out.println(t.getResult(Table.ruinIndustri,rolls));
-    }
+
 }
