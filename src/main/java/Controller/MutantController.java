@@ -23,6 +23,10 @@ public class MutantController {
         return diceRoller.roll(2);
     }
 
+    public String getResultOfRoll(Table t) {
+        return tables.getResult(t, diceRoller.roll(2));
+    }
+
 
 
 

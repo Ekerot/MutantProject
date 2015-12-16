@@ -9,15 +9,12 @@ import java.util.ArrayList;
  */
 public class main {
 
-
     public static void main(String[] args) {
         DiceRoller dr = new DiceRoller();
         Tabeller t = new Tabeller();
         MutantController mc = new MutantController(dr,t);
 
-        for(int i = 0; i<10; i++) {
-            System.out.println(t.getResult(Tabeller.Table.rotniva, mc.getDiceResults()));
-        }
-
+        System.out.println(t.getResult(Tabeller.Table.ruinIndustri, mc.getDiceResults()));
+        System.out.println(mc.getResultOfRoll(Tabeller.Table.ruinIndustri));
     }
 }
